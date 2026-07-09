@@ -13,6 +13,10 @@
     height: 1em;
 }
 
+.full-width {
+    text-align: center;
+}
+
 .full-width::before {
     width:100%;text-align: center;
 }
@@ -51,7 +55,7 @@
     color: #FFF;
     background: linear-gradient(to top, rgb(255,242,0) var(--dist,-2000%), black 100%);
     background-clip: padding-box; /* !importanté */
-    border: dashed 0.5vh black; /* !importanté */
+    border: dashed 0.6vh black; /* !importanté */
     border-radius: 1em;
 
     &:before {
@@ -61,7 +65,7 @@
         z-index: -1;
         margin: -0.5vh; /* !importanté */
         border-radius: inherit; /* !importanté */
-        background: linear-gradient(var(--angle, 0), rgb(255,242,0) -800%, black 100%);
+        background: linear-gradient(var(--angle, 0), rgb(255,242,0) -200%, black 100%);
     }
 }
 

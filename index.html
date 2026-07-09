@@ -10,11 +10,11 @@
         <div class="header full-width">Hi I'm <span class="maximumg-shiny">MaximumG9</span></div>
         <div class="body-text full-width">I play minecraft and program mods for minecraft! </div>
         <div class="full-width line-high"></div>
-        <div class="body-text full-width">Contact me for a commission by:</div>
+        <div class="body-text full-width">Contact me for a commission by (I prefer by Discord):</div>
         <div class="body-text full-width discord">My Discord: maximumg9</div>
         <div class="body-text full-width email">My Email: <a href="mailto:maximumg999@gmail.com"> maximumg999@gmail.com </a></div>
         <div class="full-width line-high"></div>
-        <div class="body-text full-width">No refunds since if I can't unspend my time making your mod you can't get back your money</div>
+        <div class="body-text full-width" style="color:#222">pleassseeee</div>
     </div>
         <!-- MaximumG9 yellow is 255 242 0 -->
     <div class="cursor-follower">
@@ -22,8 +22,8 @@
     </div>
 
     <script>
-        document.onmousemove = (e) => {
-            let shinyItems = document.getElementsByClassName("maximumg-shiny");
+	function updateShiny(e) {
+	    let shinyItems = document.getElementsByClassName("maximumg-shiny");
 
             for(let i=0;i<shinyItems.length;i++) {
                 let rect = shinyItems[i].getBoundingClientRect();
@@ -35,8 +35,10 @@
                 shinyItems[i].style.background = "linear-gradient("+ angle +"rad,rgb(255,242,0),black 120%)";
                 shinyItems[i].style.backgroundClip = "text";
             }
+	}
 
-            let gradientBoxes = document.getElementsByClassName("gradient-box");
+	function updateGradBoxes(e) {
+	    let gradientBoxes = document.getElementsByClassName("gradient-box");
 
             for(let i=0;i<gradientBoxes.length;i++) {
                 let rect = gradientBoxes[i].getBoundingClientRect();
@@ -51,8 +53,22 @@
                 yDistNormalized = (centerY-e.clientY)/(window.innerHeight);
 
                 let dist = Math.sqrt(xDistNormalized * xDistNormalized + yDistNormalized * yDistNormalized);
-            }
+	    }
+	}
+
+        document.onmousemove = (e) => {
+            updateShiny(e);
+	    updateGradBoxes(e);
         };
+	function onLoad() {
+            let fakeMousePos = {
+                clientX: 0,
+		clientY: 0
+	    }
+	    updateShiny(fakeMousePos);
+	    updateGradBoxes(fakeMousePos);
+	}
+	document.addEventListener("DOMContentLoaded", onLoad);
     </script>     
 </body>
 </html>
