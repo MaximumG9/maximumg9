@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="RenderMD — https://www.render-md.com">
+<title>Shadow Info</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.19.1/dist/katex.min.css" crossorigin="anonymous">
+<style>
+:root{--desk:oklch(15.5% .003 265);--paper:oklch(20% .004 265);--paper-2:oklch(23.3% .004 265);--paper-3:oklch(27% .005 265);--ink:oklch(93.5% .004 90);--ink-2:oklch(78.5% .004 265);--ink-3:oklch(64.5% .005 265);--ink-4:oklch(46% .005 265);--rule:oklch(29% .005 265);--rule-strong:oklch(37.5% .006 265);--proof:oklch(70% .175 33);--proof-ink:oklch(17% .01 33);--proof-soft:oklch(70% .175 33/.14);--marker:oklch(55% .11 95/.55);--shadow-ink:0 0 0;--alert-note:oklch(72% .12 250);--alert-tip:oklch(74% .13 155);--alert-important:oklch(73% .14 300);--alert-warning:oklch(80% .13 80);--alert-caution:oklch(72% .16 28);--font-sans:'Hanken Grotesk',system-ui,sans-serif;--font-display:'Newsreader',Georgia,serif;--font-serif:'Newsreader',Georgia,serif;--font-mono:'Geist Mono',ui-monospace,monospace;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{margin:0;background:var(--paper);color:var(--ink)}
+main{max-width:46rem;margin:0 auto;padding:clamp(1.5rem,6vw,5rem) 1.5rem 6rem}
+/* =============================================================================
+   Rendered document typography.
+
+   Deliberately plain, semantic CSS (no utility classes) so the exact same
+   stylesheet ships inside "Export → HTML". Everything is scoped to `.doc` and
+   driven by tokens, so three typesets are just three sets of variables.
+   ============================================================================= */
+
+.doc {
+    --doc-scale: 1;
+    --doc-body: var(--font-sans);
+    --doc-heading: var(--font-sans);
+    --doc-size: 16.5px;
+    --doc-leading: 1.65;
+    --doc-heading-weight: 640;
+    --doc-heading-tracking: -0.022em;
+    --doc-h1: 2.35em;
+    --doc-h2: 1.62em;
+    --doc-h3: 1.28em;
+    --doc-code-size: 0.86em;
+
+    font-family: var(--doc-body);
+    font-size: calc(var(--doc-size) * var(--doc-scale));
+    line-height: var(--doc-leading);
+    color: var(--ink);
+    font-optical-sizing: auto;
+    font-kerning: normal;
+    font-variant-ligatures: common-ligatures;
+    hanging-punctuation: first;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+}
+
+.doc[data-text-size='s'] {
+    --doc-scale: 0.92;
+}
+.doc[data-text-size='l'] {
+    --doc-scale: 1.1;
+}
+
+/* Editorial: a book-like serif with display headings. */
+.doc[data-typeset='serif'] {
+    --doc-body: var(--font-serif);
+    --doc-heading: var(--font-display);
+    --doc-size: 19px;
+    --doc-leading: 1.62;
+    --doc-heading-weight: 400;
+    --doc-heading-tracking: -0.012em;
+    --doc-h1: 3em;
+    --doc-h2: 2.05em;
+    --doc-h3: 1.45em;
+    --doc-code-size: 0.78em;
+}
+
+/* Technical: monospaced and compact, headings keep their markdown hashes. */
+.doc[data-typeset='mono'] {
+    --doc-body: var(--font-mono);
+    --doc-heading: var(--font-mono);
+    --doc-size: 14px;
+    --doc-leading: 1.75;
+    --doc-heading-weight: 650;
+    --doc-heading-tracking: -0.01em;
+    --doc-h1: 1.75em;
+    --doc-h2: 1.35em;
+    --doc-h3: 1.12em;
+    --doc-code-size: 0.95em;
+}
+
+.doc > :first-child {
+    margin-top: 0 !important;
+}
+.doc > :last-child {
+    margin-bottom: 0 !important;
+}
+
+/* -- Blocks ----------------------------------------------------------------- */
+
+.doc p,
+.doc ul,
+.doc ol,
+.doc dl,
+.doc table,
+.doc details,
+.doc figure,
+.doc .table-scroll {
+    margin: 0 0 1.1em;
+}
+
+.doc h1,
+.doc h2,
+.doc h3,
+.doc h4,
+.doc h5,
+.doc h6 {
+    position: relative;
+    font-family: var(--doc-heading);
+    font-weight: var(--doc-heading-weight);
+    letter-spacing: var(--doc-heading-tracking);
+    line-height: 1.18;
+    color: var(--ink);
+    text-wrap: balance;
+    scroll-margin-top: 2rem;
+    margin: 1.9em 0 0.6em;
+}
+
+.doc h1 {
+    font-size: var(--doc-h1);
+    line-height: 1.06;
+    margin-top: 0.4em;
+    margin-bottom: 0.5em;
+}
+.doc h2 {
+    font-size: var(--doc-h2);
+    margin-top: 2.1em;
+}
+.doc h3 {
+    font-size: var(--doc-h3);
+}
+.doc h4 {
+    font-size: 1.06em;
+}
+.doc h5,
+.doc h6 {
+    font-family: var(--font-mono);
+    font-size: 0.74em;
+    font-weight: 560;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+}
+.doc h6 {
+    color: var(--ink-3);
+}
+
+.doc[data-typeset='serif'] h4 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+.doc[data-typeset='mono'] :is(h1, h2, h3, h4)::before {
+    color: var(--proof);
+    font-weight: 400;
+}
+.doc[data-typeset='mono'] h1::before {
+    content: '# ';
+}
+.doc[data-typeset='mono'] h2::before {
+    content: '## ';
+}
+.doc[data-typeset='mono'] h3::before {
+    content: '### ';
+}
+.doc[data-typeset='mono'] h4::before {
+    content: '#### ';
+}
+
+/* Hanging anchor that appears on hover. */
+.doc .heading-anchor {
+    position: absolute;
+    inset-inline-end: 100%;
+    top: 50%;
+    translate: 0 -50%;
+    padding-inline: 0.35em;
+    font-family: var(--font-mono);
+    font-size: max(0.5em, 13px);
+    font-weight: 400;
+    color: var(--ink-4);
+    text-decoration: none;
+    opacity: 0;
+    transition:
+        opacity 0.15s,
+        color 0.15s;
+}
+.doc :is(h1, h2, h3, h4, h5, h6):hover .heading-anchor,
+.doc .heading-anchor:focus-visible {
+    opacity: 1;
+}
+.doc .heading-anchor:hover {
+    color: var(--proof);
+}
+
+/* Editorial drop of the first paragraph after the title. */
+.doc[data-typeset='serif'] h1 + p {
+    font-size: 1.14em;
+    line-height: 1.55;
+    color: var(--ink-2);
+}
+
+/* -- Inline ----------------------------------------------------------------- */
+
+.doc a {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-color: color-mix(in oklch, var(--proof) 70%, transparent);
+    text-decoration-thickness: 0.075em;
+    text-underline-offset: 0.2em;
+    transition:
+        color 0.15s,
+        text-decoration-color 0.15s;
+}
+.doc a:hover {
+    color: var(--proof);
+    text-decoration-color: var(--proof);
+}
+
+.doc strong,
+.doc b {
+    font-weight: 650;
+}
+.doc[data-typeset='serif'] strong {
+    font-weight: 640;
+}
+
+.doc del,
+.doc s {
+    color: var(--ink-3);
+    text-decoration-thickness: 0.06em;
+}
+
+.doc mark {
+    background: linear-gradient(
+        transparent 12%,
+        var(--marker) 12%,
+        var(--marker) 88%,
+        transparent 88%
+    );
+    color: inherit;
+    padding-inline: 0.12em;
+}
+
+.doc sup,
+.doc sub {
+    line-height: 0;
+    font-size: 0.72em;
+}
+
+.doc kbd {
+    display: inline-block;
+    min-width: 1.6em;
+    padding: 0.05em 0.42em;
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--ink-2);
+    background: var(--paper);
+    border: 1px solid var(--rule-strong);
+    border-bottom-width: 2px;
+    border-radius: 4px;
+}
+
+.doc abbr[title] {
+    text-decoration: underline dotted var(--ink-3);
+    cursor: help;
+}
+
+.doc :not(pre) > code {
+    font-family: var(--font-mono);
+    font-size: var(--doc-code-size);
+    padding: 0.14em 0.38em;
+    border-radius: 4px;
+    background: var(--paper-2);
+    box-shadow: inset 0 0 0 1px var(--rule);
+    color: var(--ink);
+    white-space: break-spaces;
+    overflow-wrap: anywhere;
+}
+.doc a > code {
+    color: inherit;
+}
+.doc[data-typeset='mono'] :not(pre) > code {
+    background: var(--proof-soft);
+    box-shadow: none;
+}
+
+/* -- Lists ------------------------------------------------------------------ */
+
+.doc ul,
+.doc ol {
+    padding-inline-start: 1.5em;
+}
+/* Stated outright: the app's CSS reset removes list markers. */
+.doc ul {
+    list-style: disc;
+}
+.doc ol {
+    list-style: decimal;
+}
+.doc li {
+    padding-inline-start: 0.25em;
+}
+.doc li + li {
+    margin-top: 0.3em;
+}
+.doc li > :is(ul, ol) {
+    margin: 0.3em 0 0;
+}
+.doc li > p {
+    margin-bottom: 0.5em;
+}
+.doc ul > li::marker {
+    color: var(--ink-3);
+}
+.doc ul ul > li::marker {
+    content: '–  ';
+}
+.doc ol > li::marker {
+    font-family: var(--font-mono);
+    font-size: 0.82em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink-3);
+}
+
+/* Task lists */
+.doc .contains-task-list {
+    list-style: none;
+    padding-inline-start: 0.1em;
+}
+.doc .task-list-item {
+    position: relative;
+    padding-inline-start: 1.75em;
+}
+.doc .task-list-item > :is(ul, ol) {
+    margin-inline-start: -0.25em;
+}
+.doc .task-list-item input[type='checkbox'] {
+    appearance: none;
+    position: absolute;
+    inset-inline-start: 0;
+    top: calc((1lh - 1.05em) / 2);
+    width: 1.05em;
+    height: 1.05em;
+    margin: 0;
+    border: 1.5px solid var(--ink-3);
+    border-radius: 4px;
+    background: var(--paper);
+    display: grid;
+    place-content: center;
+    transition:
+        background 0.15s,
+        border-color 0.15s;
+}
+.doc .task-list-item input[type='checkbox']::after {
+    content: '';
+    width: 0.55em;
+    height: 0.3em;
+    border-inline-start: 2px solid var(--paper);
+    border-bottom: 2px solid var(--paper);
+    rotate: -48deg;
+    translate: 0 -0.06em;
+    scale: 0;
+    transition: scale 0.18s var(--ease-out-quint, ease-out);
+}
+.doc .task-list-item input[type='checkbox']:checked {
+    background: var(--ink);
+    border-color: var(--ink);
+}
+.doc .task-list-item input[type='checkbox']:checked::after {
+    scale: 1;
+}
+.doc .task-list-item input[type='checkbox']:not(:disabled) {
+    cursor: pointer;
+}
+.doc .task-list-item input[type='checkbox']:not(:disabled):hover {
+    border-color: var(--proof);
+}
+.doc .task-list-item:has(> input:checked) {
+    color: var(--ink-3);
+}
+
+/* Definition-ish lists from raw HTML */
+.doc dt {
+    font-weight: 640;
+}
+.doc dd {
+    margin: 0 0 0.6em 1.5em;
+    color: var(--ink-2);
+}
+
+/* -- Quotes & rules --------------------------------------------------------- */
+
+.doc blockquote {
+    margin: 1.5em 0;
+    padding: 0.1em 0 0.1em 1.15em;
+    border-inline-start: 2px solid var(--rule-strong);
+    color: var(--ink-2);
+}
+.doc blockquote > p {
+    margin-bottom: 0.5em;
+}
+.doc blockquote > :last-child {
+    margin-bottom: 0;
+}
+.doc[data-typeset='serif'] blockquote {
+    font-family: var(--font-display);
+    font-size: 1.32em;
+    line-height: 1.38;
+    font-style: italic;
+    border-inline-start-width: 0;
+    padding-inline-start: 1.4em;
+    position: relative;
+}
+.doc[data-typeset='serif'] blockquote::before {
+    content: '“';
+    position: absolute;
+    inset-inline-start: -0.08em;
+    top: -0.18em;
+    font-size: 2.6em;
+    line-height: 1;
+    color: var(--ink-4);
+    font-style: normal;
+}
+
+/* A typographer's asterism instead of a hairline. */
+.doc hr {
+    border: 0;
+    height: auto;
+    margin: 2.6em 0;
+    text-align: center;
+    overflow: visible;
+}
+.doc hr::after {
+    content: '⁂';
+    display: inline-block;
+    font-family: var(--font-serif);
+    font-size: 1.15em;
+    line-height: 1;
+    letter-spacing: 0.4em;
+    color: var(--ink-4);
+}
+
+/* A forced page break (`<!-- pagebreak -->`): a labelled dashed rule on screen. */
+.doc hr.page-break {
+    position: relative;
+    margin: 2.4em 0;
+    border-top: 1px dashed var(--rule-strong);
+}
+.doc hr.page-break::after {
+    content: 'Page break';
+    position: absolute;
+    inset-inline-start: 50%;
+    top: 0;
+    translate: -50% -50%;
+    padding-inline: 0.75em;
+    background: var(--paper);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+}
+
+/* -- Media ------------------------------------------------------------------ */
+
+.doc img,
+.doc video {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+.doc picture {
+    display: contents;
+}
+.doc p > img:only-child,
+.doc p > a:only-child > img:only-child,
+.doc p > picture:only-child img,
+.doc > img,
+.doc > video {
+    display: block;
+    margin: 1.8em auto;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px var(--rule);
+}
+.doc p[align='center'] {
+    text-align: center;
+}
+.doc p[align='center'] img {
+    display: inline;
+    margin: 0.15em;
+    box-shadow: none;
+}
+.doc[align] {
+    text-align: inherit;
+}
+.doc figure {
+    margin: 1.8em 0;
+}
+.doc figcaption {
+    margin-top: 0.6em;
+    font-size: 0.85em;
+    color: var(--ink-3);
+    text-align: center;
+}
+
+/* -- Tables ----------------------------------------------------------------- */
+
+.doc .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+}
+.doc table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    line-height: 1.5;
+    font-variant-numeric: tabular-nums;
+}
+.doc .table-scroll > table {
+    margin: 0;
+}
+.doc th,
+.doc td {
+    padding: 0.6em 0.95em;
+    text-align: start;
+    vertical-align: top;
+    border-bottom: 1px solid var(--rule);
+}
+.doc :is(th, td)[align='center'] {
+    text-align: center;
+}
+.doc :is(th, td)[align='right'] {
+    text-align: end;
+}
+.doc th {
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    font-weight: 560;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    background: var(--paper-2);
+    white-space: nowrap;
+    /* Cell padding is in em, so scale it back up to keep header text on the body's edge. */
+    padding: calc(0.6em / 0.78) calc(0.95em / 0.78);
+}
+.doc tbody tr:last-child td {
+    border-bottom: 0;
+}
+.doc tbody tr {
+    transition: background 0.12s;
+}
+.doc tbody tr:hover {
+    background: color-mix(in oklch, var(--paper-2) 70%, transparent);
+}
+
+/* -- Code blocks ------------------------------------------------------------ */
+
+.doc .code-block {
+    margin: 1.5em 0;
+    border-radius: 6px;
+    background: var(--paper-2);
+    box-shadow: inset 0 0 0 1px var(--rule);
+    overflow: hidden;
+}
+.doc .code-block-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    height: 2.35rem;
+    padding: 0 0.5rem 0 0.95rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+.doc .code-block-title {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink-2);
+}
+.doc pre {
+    margin: 0;
+    padding: 0.95rem 0 1.05rem;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: calc(13.5px * var(--doc-scale));
+    line-height: 1.7;
+    tab-size: 2;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule-strong) transparent;
+}
+/* The side padding sits on the code so a scrolled line ends with the gutter it starts with. */
+.doc pre:not(:has(> code)) {
+    padding-inline: 1.1rem;
+}
+.doc pre code {
+    font: inherit;
+    display: block;
+    box-sizing: border-box;
+    min-width: max-content;
+    padding-inline: 1.1rem;
+}
+.doc pre .line {
+    display: inline-block;
+    min-width: 100%;
+}
+.doc pre[data-line-numbers] code {
+    counter-reset: line;
+}
+.doc pre[data-line-numbers] .line::before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    width: 2.2ch;
+    margin-inline-end: 1.4ch;
+    text-align: end;
+    color: var(--ink-4);
+    user-select: none;
+}
+.doc pre .line:is(.diff-add, .diff-remove) {
+    box-sizing: content-box;
+    margin-inline: -1.1rem;
+    padding-inline: 1.1rem;
+    background: color-mix(in oklab, var(--diff) 11%, transparent);
+}
+.doc pre .line.diff-add {
+    --diff: var(--alert-tip);
+}
+.doc pre .line.diff-remove {
+    --diff: var(--alert-caution);
+}
+
+/* Shiki dual themes — colours arrive as CSS variables on each token. */
+.doc pre .token {
+    color: var(--shiki-light);
+    font-style: var(--shiki-light-font-style, inherit);
+}
+/* The dark theme's colours are tuned for a darker ground than paper-2, so lift them toward ink.
+   Screen only, like the dark tokens: printed pages are light. */
+@media screen {
+    .dark .doc pre .token,
+    .doc.dark pre .token {
+        color: color-mix(in oklab, var(--shiki-dark) 80%, var(--ink));
+        font-style: var(--shiki-dark-font-style, inherit);
+    }
+}
+.doc pre .line:is(.diff-add, .diff-remove),
+.doc pre .line:is(.diff-add, .diff-remove) .token {
+    color: color-mix(in oklab, var(--diff) 72%, var(--ink));
+}
+
+/* -- Math ------------------------------------------------------------------- */
+
+.doc .math-display {
+    display: block;
+    margin: 1.5em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.2em 0;
+    scrollbar-width: thin;
+}
+.doc .katex {
+    font-size: 1.08em;
+}
+.doc[data-typeset='mono'] .katex {
+    font-size: 1.2em;
+}
+
+/* -- Alerts (GitHub `> [!NOTE]`) ------------------------------------------- */
+
+.doc .markdown-alert {
+    --alert: var(--alert-note);
+    margin: 1.5em 0;
+    padding: 0.85em 1.1em 0.9em;
+    border-inline-start: 2px solid var(--alert);
+    border-start-end-radius: 6px;
+    border-end-end-radius: 6px;
+    background: color-mix(in oklab, var(--alert) 7%, var(--paper));
+}
+.doc .markdown-alert[data-alert='tip'] {
+    --alert: var(--alert-tip);
+}
+.doc .markdown-alert[data-alert='important'] {
+    --alert: var(--alert-important);
+}
+.doc .markdown-alert[data-alert='warning'] {
+    --alert: var(--alert-warning);
+}
+.doc .markdown-alert[data-alert='caution'] {
+    --alert: var(--alert-caution);
+}
+.doc .markdown-alert-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0 0 0.35em;
+    font-family: var(--font-mono);
+    font-size: 0.72em;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--alert);
+}
+.doc .markdown-alert-title svg {
+    width: 1.35em;
+    height: 1.35em;
+}
+.doc .markdown-alert > :last-child {
+    margin-bottom: 0;
+}
+
+/* -- Details ---------------------------------------------------------------- */
+
+.doc details {
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 0 1em;
+    background: var(--paper);
+}
+.doc details[open] {
+    padding-bottom: 0.2em;
+}
+.doc summary {
+    cursor: pointer;
+    padding: 0.65em 0;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.55em;
+}
+.doc summary::-webkit-details-marker {
+    display: none;
+}
+.doc summary::before {
+    content: '';
+    width: 0.45em;
+    height: 0.45em;
+    border-inline-end: 1.5px solid var(--ink-3);
+    border-bottom: 1.5px solid var(--ink-3);
+    rotate: -45deg;
+    transition: rotate 0.2s;
+    flex-shrink: 0;
+}
+.doc details[open] > summary::before {
+    rotate: 45deg;
+}
+
+/* -- Footnotes -------------------------------------------------------------- */
+
+.doc .footnotes {
+    margin-top: 3em;
+    padding-top: 1.2em;
+    border-top: 1px solid var(--rule);
+    font-size: 0.86em;
+    color: var(--ink-2);
+}
+/* A closing rule already separates the notes. */
+.doc hr + .footnotes {
+    margin-top: 1.5em;
+    padding-top: 0;
+    border-top: 0;
+}
+.doc .footnotes h2 {
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    font-weight: 560;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 0.8em;
+}
+.doc .footnotes h2::before {
+    content: none !important;
+}
+.doc [data-footnote-ref] {
+    font-family: var(--font-mono);
+    text-decoration: none;
+    color: var(--proof);
+    padding-inline: 0.1em;
+}
+.doc [data-footnote-backref] {
+    text-decoration: none;
+    font-family: var(--font-mono);
+}
+.doc .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* -- Frontmatter ------------------------------------------------------------ */
+
+.doc .frontmatter {
+    margin: 0 0 2.2em;
+    padding: 0 0 1em;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.7;
+}
+.doc .frontmatter dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: baseline;
+    gap: 0.2em 1.5em;
+    margin: 0;
+}
+.doc .frontmatter dt {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+.doc .frontmatter dd {
+    margin: 0;
+    color: var(--ink-2);
+    overflow-wrap: anywhere;
+}
+
+/* -- Diagrams --------------------------------------------------------------- */
+
+.doc .diagram {
+    margin: 1.8em 0;
+    border-radius: 6px;
+    box-shadow: inset 0 0 0 1px var(--rule);
+    overflow: hidden;
+}
+.doc .diagram-canvas {
+    display: flex;
+    justify-content: center;
+    padding: 1.4em 1em;
+    overflow-x: auto;
+}
+/* Edge labels sit on the page colour, with a little air so the line stops short of the text. */
+.doc .diagram-canvas foreignObject {
+    overflow: visible;
+}
+.doc .diagram-canvas .labelBkg {
+    background: var(--paper);
+    box-shadow: 0 0 0 4px var(--paper);
+}
+.doc .diagram-canvas svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* -- Measure ----------------------------------------------------------------
+   With a measure (`data-measure`, set by the workspace preview), prose keeps to that line
+   length, and code, tables, display math and top-level media may grow past it to fit their
+   content, up to the document's width. The prose's max-width also caps what it adds to the
+   document's intrinsic width, so a host that sizes the page to fit its content grows only for
+   those blocks. The cap must stay a plain length: a percentage would lift it. */
+
+.doc[data-measure] > :not(img, video) {
+    max-width: var(--doc-measure);
+    margin-inline: auto;
+}
+.doc[data-measure] > :is(.code-block, .table-scroll, .math-display) {
+    width: fit-content;
+    min-width: min(100%, var(--doc-measure));
+    max-width: 100%;
+}
+
+/* =============================================================================
+   Print — only the paper makes it to the page. Sizes are in points; the page
+   margins set the line length. Long code blocks and tables break across
+   pages; short ones (`data-short`) stay whole.
+   ============================================================================= */
+
+@media print {
+    .doc {
+        --doc-size: 10.5pt;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    .doc[data-typeset='serif'] {
+        --doc-size: 12pt;
+    }
+    .doc[data-typeset='mono'] {
+        --doc-size: 9.5pt;
+    }
+
+    .doc .heading-anchor,
+    .doc .code-block-actions,
+    .doc .diagram-actions {
+        display: none !important;
+    }
+
+    .doc :is(h1, h2, h3, h4, h5, h6) {
+        break-after: avoid;
+        break-inside: avoid;
+    }
+    .doc p {
+        orphans: 2;
+        widows: 2;
+    }
+
+    /* Scroll containers can't break across pages, so nothing scrolls on paper. */
+    .doc :is(.code-block, .table-scroll, pre, .diagram, .diagram-canvas, .math-display) {
+        overflow: visible;
+    }
+
+    .doc .code-block {
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+    .doc .code-block-header {
+        break-after: avoid;
+    }
+    .doc pre {
+        font-size: calc(8.5pt * var(--doc-scale));
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        orphans: 3;
+        widows: 3;
+    }
+    .doc pre code {
+        min-width: 0;
+    }
+
+    .doc .table-scroll {
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+    .doc thead {
+        display: table-header-group;
+    }
+    .doc tr {
+        break-inside: avoid;
+    }
+    .doc th {
+        white-space: normal;
+    }
+    .doc td {
+        overflow-wrap: anywhere;
+    }
+
+    .doc :is(.code-block, .table-scroll)[data-short],
+    .doc :is(.markdown-alert, .diagram, .math-display, img, video, blockquote) {
+        break-inside: avoid;
+    }
+
+    /* Figures stay well short of a full page, so the heading above one fits beside it. */
+    .doc :is(img, video) {
+        max-height: calc(var(--page-content-height, 100vh) * 0.75);
+        object-fit: contain;
+    }
+    .doc .diagram-canvas svg {
+        max-height: calc(var(--page-content-height, 100vh) * 0.7);
+    }
+
+    .doc hr.page-break {
+        break-after: page;
+        height: 0;
+        margin: 0;
+        border: 0;
+        visibility: hidden;
+    }
+
+    .doc tbody tr:hover {
+        background: none;
+    }
+}
+
+@media print{.dark .doc pre .token{color:color-mix(in oklab,var(--shiki-dark) 80%,var(--ink));font-style:var(--shiki-dark-font-style,inherit)}}
+</style>
+</head>
+<body>
+<main>
+<article class="doc" data-typeset="sans" data-text-size="m"><h1 id="shadow-info">Shadow Info</h1>
+<h2 id="videos-of-shadow">Videos of Shadow</h2>
+<h3 id="wato-videos">Wato Videos</h3>
+<ul>
+<li><a href="https://youtu.be/c-4Grd-G5zI" target="_blank" rel="noopener noreferrer">The Greatest Social Deduction Game You've Never Heard Of...</a></li>
+<li><a href="https://youtu.be/yC_rvmT6Ke8" target="_blank" rel="noopener noreferrer">Can You Trust Your Closest Friends?</a></li>
+<li><a href="https://youtu.be/MRC23WJotFc" target="_blank" rel="noopener noreferrer">Can I Stop Everyone From Slaying The Dragon?</a></li>
+<li><a href="https://youtu.be/sw_yk9PPy44" target="_blank" rel="noopener noreferrer">Everyone Who Finds me Dies...</a></li>
+<li><a href="https://youtu.be/W59pEy24lKk" target="_blank" rel="noopener noreferrer">Hiding a Hitman in the End</a></li>
+</ul>
+<h3 id="jammin-videos">Jammin Videos</h3>
+<ul>
+<li><a href="https://youtu.be/OlfdeLt9BT4" target="_blank" rel="noopener noreferrer">Never invite a PvPer to your social deduction game</a></li>
+<li><a href="https://youtu.be/HlyR4SOvwCg" target="_blank" rel="noopener noreferrer">Aura Farming in a Social deduction game (Shadow)</a></li>
+<li><a href="https://youtu.be/AIloCqRYVo4" target="_blank" rel="noopener noreferrer">Absolutely Ruining a Social deduction game (Shadow)</a></li>
+</ul>
+<h1 id="implementations-of-shadow">Implementations of Shadow</h1>
+<h2 id="old-shadow-latest-full-implementation">Old Shadow (Latest full implementation)</h2>
+<p>(Fabric Mod) <br>
+<a href="https://github.com/MaximumG9/ShadowOld" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+<h3 id="setup">Setup:</h3>
+<p>TODO</p>
+<h2 id="old-old-shadow-eclipsia">Old Old Shadow (eclipsia)</h2>
+<p>(Paper Plugin) <br>
+<a href="https://github.com/MaximumG9/eclipsia" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+<h3 id="setup-1">Setup:</h3>
+<ol>
+<li>Set up a paper 1.20.4 server</li>
+<li>Install <a href="https://modrinth.com/plugin/simple-voice-chat/versions?l=paper" target="_blank" rel="noopener noreferrer">Simple Voice Chat</a>, <a href="https://modrinth.com/plugin/worldedit" target="_blank" rel="noopener noreferrer">World Edit</a>, <a href="https://modrinth.com/plugin/viaversion" target="_blank" rel="noopener noreferrer">ViaVersion</a>, <a href="https://modrinth.com/plugin/viabackwards" target="_blank" rel="noopener noreferrer">ViaBackwards</a>, <a href="https://www.spigotmc.org/resources/protocollib.1997/" target="_blank" rel="noopener noreferrer">ProtocolLib</a>, and the <a href="https://github.com/MaximumG9/eclipsia" target="_blank" rel="noopener noreferrer">Shadow Plugin</a> (Requires compiling the Shadow Plugin from source)</li>
+<li>Before starting the server, change these 2 settings in the voicemod config
+<img alt="change port to -1 and max_voice_distance to 24.0" loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://maximumg9.com/voicechatconfig.png"></li>
+<li>Start the server and have everyone join with the <a href="https://modrinth.com/plugin/simple-voice-chat/versions?l=fabric" target="_blank" rel="noopener noreferrer">simple voice chat mod</a> as well as <a href="https://modrinth.com/mod/fabric-api" target="_blank" rel="noopener noreferrer">fabric api</a>. Make sure everyone is using <a href="https://fabricmc.net/" target="_blank" rel="noopener noreferrer">fabric loader</a></li>
+<li>Do /seed and find a stronghold using <a href="https://www.chunkbase.com/apps/seed-map" target="_blank" rel="noopener noreferrer">chunkbase</a></li>
+<li>Teleport to that location and use <strong>/$location</strong> to set the spawn region for the game. If it fails, move around a bit until you get the portal room within the world border</li>
+<li>Set up roles with <strong>/$roles</strong> and make sure that the amount of roles is equal to the amount of players in the game. Also use this time to check that you have the modifiers you want with <strong>/$modifiers</strong>, and also do <strong>/$config food RANDOM</strong></li>
+<li>Have everyone verify that their voice chat is working, verify that the end is fully reset, and start the game by using <strong>/$start</strong></li>
+</ol>
+<h2 id="old-old-old-shadow-command-block">Old Old Old Shadow (command block)</h2>
+<p>(Sponge Style Schematic) <br>
+<a href="Command_ShadowV6-1-1.schem" target="_blank" rel="noopener noreferrer">Download</a></p>
+<h3 id="setup-2">Setup:</h3>
+<p>TODO</p></article>
+</main>
+</body>
+</html>
